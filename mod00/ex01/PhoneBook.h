@@ -1,6 +1,9 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
+# include <string>
+# include <iomanip>
+# include <iostream>
 # include "Contact.h"
 
 class PhoneBook
@@ -12,8 +15,9 @@ public:
 	PhoneBook();
 	~PhoneBook();
 
-	Add();
-	Search()
+	void	Add();
+	void	Search();
+	void	Exit();
 };
 
 

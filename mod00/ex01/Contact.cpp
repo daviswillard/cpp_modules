@@ -12,37 +12,38 @@ void	Contact::SetNew()
 {
 	using std::cout;
 	using std::cin;
+	std::string	temp;
 
 	cout << "Adding new contact\n\tType first name: ";
-	cin >> this->first_name_;
+	std::getline(cin, this->first_name_);
 	if (!this->first_name_.length())
 	{
 		cout << "Can't have empty fields. Exiting..." << endl;
 		exit(0);
 	}
 	cout << "\tType last name: ";
-	cin >> this->last_name_;
+	std::getline(cin, this->last_name_);
 	if (!this->last_name_.length())
 	{
 		cout << "Can't have empty fields. Exiting..." << endl;
 		exit(0);
 	}
 	cout << "\tType nickname: ";
-	cin >> this->nickname_;
+	std::getline(cin, this->nickname_);
 	if (!this->nickname_.length())
 	{
 		cout << "Can't have empty fields. Exiting..." << endl;
 		exit(0);
 	}
 	cout << "\tType phone number: ";
-	cin >> this->phone_number_;
+	std::getline(cin, this->phone_number_);
 	if (!this->phone_number_.length())
 	{
 		cout << "Can't have empty fields. Exiting..." << endl;
 		exit(0);
 	}
 	cout << "\tType darkest secret: ";
-	cin >> this->darkest_secret_;
+	std::getline(cin, this->darkest_secret_);
 	if (!this->darkest_secret_.length())
 	{
 		cout << "Can't have empty fields. Exiting..." << endl;

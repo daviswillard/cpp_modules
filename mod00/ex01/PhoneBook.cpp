@@ -9,4 +9,17 @@ PhoneBook::~PhoneBook()
 {
 }
 
+void	PhoneBook::Add()
+{
 
+}
+
+void	PhoneBook::Search()
+{
+
+}
+
+void	PhoneBook::Exit()
+{
+
+}

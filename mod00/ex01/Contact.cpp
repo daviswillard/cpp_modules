@@ -12,7 +12,6 @@ void	Contact::SetNew()
 {
 	using std::cout;
 	using std::cin;
-	std::string	temp;
 
 	cout << "Adding new contact\n\tType first name: ";
 	std::getline(cin, this->first_name_);

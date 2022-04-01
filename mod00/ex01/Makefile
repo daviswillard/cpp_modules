@@ -1,7 +1,7 @@
 NAME		=	phonebook
 
-SRCS		=	phonebook.cpp	\
-				contact.cpp		\
+SRCS		=	PhoneBook.cpp	\
+				Contact.cpp		\
 				main.cpp
 
 VPATH		=	.

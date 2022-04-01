@@ -16,8 +16,7 @@ public:
 	~PhoneBook();
 
 	void	Add();
-	void	Search();
-	void	Exit();
+	void	Search(int count);
 };
 
 

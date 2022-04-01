@@ -22,7 +22,7 @@ private:
 public:
 	Contact();
 	~Contact();
-	void			SetNew();
+	void			SetNew(int index);
 	void			SearchInfo();
 	void			PrintInfo();
 };

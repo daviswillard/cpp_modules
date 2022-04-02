@@ -1,3 +1,4 @@
 */**/.[ado]
 .idea
 cmake*
+.ccls*

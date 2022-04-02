@@ -13,6 +13,7 @@ void	Contact::SetNew(int index)
 	using std::cout;
 	using std::cin;
 	using std::endl;
+	using std::exit;
 
 	index_ = index;
 	cout << "Adding new contact\n\tType first name: ";
@@ -79,5 +80,5 @@ void	Contact::PrintInfo()
 
 	cout << "Printing contact information:\n";
 	cout << first_name_ << '\n' << last_name_ << '\n' << nickname_ << '\n';
-	cout << phone_number_ << '\n' << darkest_secret_ << '\n';
+	cout << phone_number_ << '\n' << darkest_secret_ << "\n\n";
 }

@@ -2,13 +2,11 @@
 
 int	main(int argc, char *argv[])
 {
-	std::fstream	src;
-	std::string		dst;
-
 	if (argc != 4)
-		return (0);
-	src.open(argv[1], std::fstream::in);
-
-	dst.append(argv[1]);
-	dst.append(".replace");
+	{
+		std::cout << "Wrong number of arguments\n" << std::endl;
+		return (1);
+	}
+	Replace replace(argv[1], argv[2], argv[3]);
+	return (0);
 }

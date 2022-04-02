@@ -2,6 +2,8 @@
 
 Replace::~Replace()
 {
+	src_.close();
+	dst_.close();
 }
 
 Replace::Replace(const std::string& filename,
@@ -11,57 +13,48 @@ Replace::Replace(const std::string& filename,
 	dst_filename_ = filename_ + ".replace";
 	s1_ = s1;
 	s2_ = s2;
+	if (s1_.empty() || s2_.empty())
+	{
+		std::cerr << "One of lines is empty" << std::endl;
+		std::exit(1);
+	}
 	OpenFile();
 	GetReplace();
 }
 
 void	Replace::OpenFile()
 {
-	src_.open(filename_, std::ifstream::in);
+	src_.open(filename_.c_str(), std::ifstream::in);
 	if (!src_.is_open())
 	{
-		std::cout << "Couldn't open file for reading\n" << std::endl;
+		std::cerr << "Couldn't open file for reading" << std::endl;
 		std::exit(0);
 	}
-	dst_.open(dst_filename_, std::ofstream::out | std::ofstream::trunc);
+	dst_.open(dst_filename_.c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (!dst_.is_open())
 	{
-		std::cout << "Couldn't open file for writing\n" << std::endl;
+		std::cerr << "Couldn't open file for writing" << std::endl;
 		std::exit(0);
 	}
-}
-
-void	Replace::FoundOccurence(const std::string& str, const size_t pos)
-{
-	std::size_t	pos1;
-	std::size_t	index;
-
-	pos1 = pos;
-	index = 0;
-	std::cout << str << '\n';
-	while (pos1 != std::string::npos)
-	{
-		dst_ << str.substr(index, pos1) << s2_;
-//		std::cout << str << '\n';
-		index = pos1 + s1_.length();
-		pos1 = str.find(str, index);
-	}
-	if (index < str.length())
-		dst_ << str.substr(index, str.length()) << '\n';
 }
 
 void	Replace::GetReplace()
 {
 	std::string	temp;
-	std::size_t	pos;
+	std::size_t	found;
 
 	while (!src_.eof())
 	{
 		std::getline(src_, temp);
-		pos = temp.find(s1_);
-		if (pos == std::string::npos)
-			dst_ << temp;
-		else
-			FoundOccurence(temp, pos);
+		if (temp.empty())
+			return ;
+		found = temp.find(s1_);
+		while (found != std::string::npos)
+		{
+			temp.erase(found, s1_.length());
+			temp.insert(found, s2_);
+			found = temp.find(s1_);
+		}
+		dst_ << temp << std::endl;
 	}
 }

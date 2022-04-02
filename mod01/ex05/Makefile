@@ -1,6 +1,6 @@
-NAME		=	replace
+NAME		=	harl
 
-SRCS		=	main.cpp	Replace.cpp
+SRCS		=	main.cpp	Harl.cpp
 
 VPATH		=	.
 

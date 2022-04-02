@@ -4,6 +4,7 @@
 # include <string>
 # include <iostream>
 # include <fstream>
+# include <cstdlib>
 
 class Replace
 {
@@ -16,7 +17,6 @@ private:
 	std::ofstream	dst_;
 	void 			OpenFile();
 	void			GetReplace();
-	void			FoundOccurence(const std::string& str, size_t pos);
 public:
 	Replace(const std::string& filename,
 			const std::string& s1, const std::string& s2);

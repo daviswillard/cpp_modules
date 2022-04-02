@@ -2,13 +2,9 @@
 
 int	main(int argc, char *argv[])
 {
-	std::fstream	src;
-	std::string		dst;
+	std::ifstream	src;
 
 	if (argc != 4)
 		return (0);
-	src.open(argv[1], std::fstream::in);
-
-	dst.append(argv[1]);
-	dst.append(".replace");
+	src.open(argv[1], std::ifstream::in);
 }

@@ -2,13 +2,11 @@
 
 int	main()
 {
-	using std::string;
 	using std::cout;
-	using std::endl;
 
-	string		var = "HI THIS IS BRAIN";
-	string 		*stringPTR = &var;
-	string		&stringREF = var;
+	std::string		var = "HI THIS IS BRAIN";
+	std::string 	*stringPTR = &var;
+	std::string		&stringREF = var;
 
 	cout << &var << "\n";
 	cout << stringPTR << "\n";
@@ -16,7 +14,7 @@ int	main()
 
 	cout << var << "\n";
 	cout << *stringPTR << "\n";
-	cout << stringREF << "\n";
+	cout << stringREF << std::endl;
 
 	return 0;
 }

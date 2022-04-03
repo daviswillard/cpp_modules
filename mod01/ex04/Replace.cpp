@@ -28,13 +28,13 @@ void	Replace::OpenFile()
 	if (!src_.is_open())
 	{
 		std::cerr << "Couldn't open file for reading" << std::endl;
-		std::exit(0);
+		std::exit(1);
 	}
 	dst_.open(dst_filename_.c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (!dst_.is_open())
 	{
 		std::cerr << "Couldn't open file for writing" << std::endl;
-		std::exit(0);
+		std::exit(1);
 	}
 }
 

@@ -1,12 +1,10 @@
 #ifndef HUMANB_H
 # define HUMANB_H
+# define HUMANA_H
 
 # include <string>
 # include <iostream>
-# ifndef HUMANA_H
-
-#  include "Weapon.h"
-# endif
+# include "Weapon.h"
 
 class HumanB
 {

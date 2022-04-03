@@ -2,24 +2,19 @@
 
 void	Zombie::announce()
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::setName(std::string name)
+void	Zombie::set_name(const std::string& name)
 {
-	this->name = name;
+	name_ = name;
 }
 
 Zombie::Zombie()
 {
 }
 
-Zombie::Zombie(std::string name)
-{
-	this->name = name;
-}
-
 Zombie::~Zombie()
 {
-	std::cout << "For " << this->name << " destructor was called" << std::endl;
+	std::cout << "For " << name_ << " destructor was called" << std::endl;
 }

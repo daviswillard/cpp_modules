@@ -90,11 +90,12 @@ Fixed& Fixed::operator--()
 Fixed Fixed::operator--(int)
 {
 	Fixed	new_fixed(*this);
-	store_++;
+	store_--;
 	return (new_fixed);
 }
 
 std::ostream& operator<< (std::ostream &out, const Fixed& fixed)
 {
-	return (out << fixed.ToFloat());
+	out << fixed.ToFloat();
+	return (out);
 }

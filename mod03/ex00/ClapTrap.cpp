@@ -19,16 +19,14 @@ ClapTrap::ClapTrap(const std::string& name): name_(name)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor ClapTrap was called" << std::endl;
+	std::cout << "Destructor ClapTrap was called for " << get_name()
+		<< std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& clap)
 {
 	std::cout << "Copy ClapTrap constructor called" << std::endl;
-	name_ = clap.get_name();
-	hit_points_ = clap.get_hit_points();
-	energy_points_ = clap.get_energy_points();
-	attack_damage_ = clap.get_attack_damage();
+	*this = clap;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &clap)
@@ -109,7 +107,7 @@ void	ClapTrap::TakeDamage(unsigned int amount)
 			  << amount << " damage!" << std::endl;
 	hit_points_ -= amount;
 	if (hit_points_ <= 0)
-		std::cout << "ClapTrap " << name_ << " was destroyed!" << std::endl;
+		std::cout << "ClapTrap " << name_ << " was dieded!" << std::endl;
 }
 
 void	ClapTrap::BeRepaired(unsigned int amount)

@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
 
 class ClapTrap
 {
@@ -23,6 +24,7 @@ public:
 	void		set_hit_points(int hp);
 	void		set_energy_points(int ep);
 
+	void		GetInfo();
 	std::string get_name() const;
 	int			get_attack_damage() const;
 	int			get_hit_points() const;

@@ -2,22 +2,31 @@
 #include "ClapTrap.h"
 
 
-int main() {
-	ScavTrap robot1("RoboBoba");
+int main()
+{
+	unsigned int damage = 30;
 
-	srand(time(nullptr));
-	while (robot1.get_hit_points() > 0)
-	{
-		if (robot1.get_hit_points() <= 50)
-		{
-			std::cout << std::endl;
-			robot1.GuardGate();
-		}
-		std::cout << std::endl;
-		robot1.TakeDamage(rand() % 100 + 1);
-		robot1.BeRepaired(rand() % 2 + 1);
-		robot1.Attack("RobaBoba");
-	}
+	ScavTrap tamara("Tamara Petrovna");
+	tamara.GetInfo();
+	tamara.set_attack_damage(damage);
+	tamara.GuardGate();
+
+	tamara.Attack("Boris Nikolaevich");
+	tamara.GetInfo();
+	std::cout << std::endl;
+
+	ScavTrap borya("Boris Nikolaevich");
+	borya.GetInfo();
+	borya.TakeDamage(damage);
+	borya.GetInfo();
+	std::cout << std::endl;
+
+	ScavTrap counterpart(tamara);
+	counterpart.GetInfo();
+	std::cout << std::endl;
+
+	ScavTrap counterpart2 = borya;
+	counterpart2.GetInfo();
 	std::cout << std::endl;
 	return 0;
 }

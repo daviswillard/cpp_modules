@@ -59,6 +59,14 @@ void	ClapTrap::set_energy_points(int ep)
 	energy_points_ = ep;
 }
 
+void	ClapTrap::GetInfo()
+{
+	std::cout << "Name:\t" << std::setw(10) << name_ << std::endl;
+	std::cout << "HP:\t\t" << std::setw(10) << hit_points_ << std::endl;
+	std::cout << "EP:\t\t" << std::setw(10) << energy_points_ << std::endl;
+	std::cout << "AD:\t\t" << std::setw(10) << attack_damage_ << std::endl;
+}
+
 std::string ClapTrap::get_name() const
 {
 	return (name_);

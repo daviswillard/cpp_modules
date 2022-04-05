@@ -17,8 +17,11 @@ int	main()
 	cout << a << endl;
 
 	cout << b << endl;
+	cout << c << endl;
 	cout << b / c << endl;
-	cout << c / 1024 << endl;
+	cout << b * c << endl;
+	cout << b - c << endl;
+	cout << b + c << endl;
 	cout << c.ToInt() << endl;
 
 	cout << Fixed::max(a, b) << endl;

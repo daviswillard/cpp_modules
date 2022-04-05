@@ -8,14 +8,25 @@ class ClapTrap
 {
 private:
 	std::string name_;
-	int			hp_;
-	int			ep_;
-	int			ad_;
+	int			hit_points_;
+	int			energy_points_;
+	int			attack_damage_;
 public:
-	ClapTrap(const std::string& name);
+	ClapTrap();
+	explicit ClapTrap(const std::string& name);
 	ClapTrap(const ClapTrap& clap);
 	~ClapTrap();
-	ClapTrap&	operator=(const ClapTrap &clap);
+	ClapTrap&	operator=(const ClapTrap& clap);
+
+	void		set_name(const std::string& name);
+	void		set_attack_damage(int ad);
+	void		set_hit_points(int hp);
+	void		set_energy_points(int ep);
+
+	std::string get_name() const;
+	int			get_attack_damage() const;
+	int			get_hit_points() const;
+	int			get_energy_points() const;
 
 	void		Attack(const std::string& target);
 	void		TakeDamage(unsigned int amount);

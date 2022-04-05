@@ -21,7 +21,7 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 {
 	std::cout << "Copy assignment operator called\n";
 	store_ = fixed.get_raw_bits();
-	return *this;
+	return (*this);
 }
 
 int	Fixed::get_raw_bits() const

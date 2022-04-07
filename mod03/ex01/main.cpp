@@ -6,26 +6,28 @@ int main()
 {
 	unsigned int damage = 30;
 
-	ScavTrap tamara("Tamara Petrovna");
-	tamara.GetInfo();
-	tamara.set_attack_damage(damage);
-	tamara.GuardGate();
+	ScavTrap scav = ScavTrap();
+	scav.GetInfo();
+	scav.set_attack_damage(damage);
+	scav.TakeDamage(damage);
+	scav.GuardGate();
+	scav.GetInfo();
 
-	tamara.Attack("Boris Nikolaevich");
-	tamara.GetInfo();
+	scav.Attack("Serena");
+	scav.GetInfo();
 	std::cout << std::endl;
 
-	ScavTrap borya("Boris Nikolaevich");
-	borya.GetInfo();
-	borya.TakeDamage(damage);
-	borya.GetInfo();
+	ScavTrap serena("Serena");
+	serena.GetInfo();
+	serena.TakeDamage(damage);
+	serena.GetInfo();
 	std::cout << std::endl;
 
-	ScavTrap counterpart(tamara);
+	ScavTrap counterpart(scav);
 	counterpart.GetInfo();
 	std::cout << std::endl;
 
-	ScavTrap counterpart2 = borya;
+	ScavTrap counterpart2 = serena;
 	counterpart2.GetInfo();
 	std::cout << std::endl;
 	return 0;

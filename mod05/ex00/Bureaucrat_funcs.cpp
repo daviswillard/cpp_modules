@@ -12,16 +12,16 @@ int	Bureaucrat::get_grade() const
 
 void	Bureaucrat::set_grade(const int &grade)
 {
-	grade_ = grade;
-	if (grade_ < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();
+	grade_ = grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	grade_ = copy.get_grade();
 	return (*this);
 }
@@ -29,18 +29,18 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 Bureaucrat Bureaucrat::operator++(int)
 {
 	const Bureaucrat copy(*this);
-	grade_--;
-	if (grade_ > 150)
+	if (grade_ - 1 < 1)
 		throw GradeTooHighException();
+	grade_--;
 	return (copy);
 }
 
 Bureaucrat Bureaucrat::operator--(int)
 {
 	const Bureaucrat copy(*this);
-	grade_++;
-	if (grade_ > 150)
+	if (grade_ + 1 > 150)
 		throw GradeTooLowException();
+	grade_++;
 	return (copy);
 }
 
@@ -49,14 +49,4 @@ std::ostream& operator<< (std::ostream& out, const Bureaucrat& bureau)
 	out << bureau.get_name() << ", bureaucrat grade " << bureau.get_grade()
 		<< std::endl;
 	return (out);
-}
-
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return ("Grade is too high");
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return ("Grade is too low");
 }

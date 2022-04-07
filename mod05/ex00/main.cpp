@@ -15,5 +15,34 @@ int	main()
 	cout << gamma;
 	cout << endl;
 
+	try
+	{
+		Bureaucrat delta("Delta", 151);
+	}
+	catch (std::exception& er)
+	{
+		cout << er.what() << endl;
+	}
+	try
+	{
+		while (1)
+			gamma++;
+	}
+	catch (std::exception& er)
+	{
+		cout << er.what() << endl;
+	}
+	try
+	{
+		while (1)
+			gamma--;
+	}
+	catch (std::exception& er)
+	{
+		cout << er.what() << endl;
+	}
+	Bureaucrat delta(gamma);
+	cout << delta;
+	
 	return (0);
 }

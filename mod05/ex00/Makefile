@@ -1,6 +1,6 @@
 NAME		=	mommy
 
-SRCS		=	main.cpp	Bureaucrat.cpp
+SRCS		=	main.cpp	Bureaucrat.cpp	Bureaucrat_funcs.cpp
 
 VPATH		=	.
 

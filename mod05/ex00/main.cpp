@@ -43,6 +43,6 @@ int	main()
 	}
 	Bureaucrat delta(gamma);
 	cout << delta;
-	
+
 	return (0);
 }

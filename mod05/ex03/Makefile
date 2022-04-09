@@ -1,7 +1,8 @@
-NAME		=	no_you_need
+NAME		=	at_least
 
 SRCS		=	main.cpp	Bureaucrat.cpp	Bureaucrat_funcs.cpp	Form.cpp\
-ShrubberyCreationForm.cpp	RobotomyRequestClass.cpp	PresidentialPardonForm.cpp
+ShrubberyCreationForm.cpp	RobotomyRequestClass.cpp\
+PresidentialPardonForm.cpp	Intern.cpp
 
 VPATH		=	.
 

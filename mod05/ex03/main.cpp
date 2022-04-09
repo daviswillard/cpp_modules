@@ -3,20 +3,24 @@
 #include "ShrubberyCreationForm.h"
 #include "RobotomyRequestClass.h"
 #include "PresidentialPardonForm.h"
+#include "Intern.h"
 
 int	main()
 {
 	using std::cout;
 	using std::endl;
 
-
-	Bureaucrat omega("OmegaWeapon", 20);
+	std::string sc = "shrubbery creation";
+	std::string rr = "robotomy request";
+	std::string pp = "presidential pardon";
+	Bureaucrat	omega("OmegaWeapon", 20);
+	Intern		creator = Intern();
 	std::cout << "-----------------------------------" << std::endl;
 	try
 	{
-		ShrubberyCreationForm Shrubbery("Shrubbery");
-		omega.SignForm(Shrubbery);
-		omega.ExecuteForm(Shrubbery);
+		Form* Shrubbery = creator.MakeForm(sc, "Yulya");
+		omega.SignForm(*Shrubbery);
+		omega.ExecuteForm(*Shrubbery);
 	}
 	catch (std::exception & error)
 	{
@@ -25,9 +29,9 @@ int	main()
 	std::cout << "-----------------------------------" << std::endl;
 	try
 	{
-		RobotomyRequestForm Robotomy("Robotomy");
-		omega.SignForm(Robotomy);
-		omega.ExecuteForm(Robotomy);
+		Form* Robotomy = creator.MakeForm(rr, "Robot");
+		omega.SignForm(*Robotomy);
+		omega.ExecuteForm(*Robotomy);
 	}
 	catch (std::exception & error)
 	{
@@ -36,9 +40,9 @@ int	main()
 	std::cout << "-----------------------------------" << std::endl;
 	try
 	{
-		PresidentialPardonForm President("President");
-		omega.SignForm(President);
-		omega.ExecuteForm(President);
+		Form* President = creator.MakeForm(pp, "President");
+		omega.SignForm(*President);
+		omega.ExecuteForm(*President);
 	}
 	catch (std::exception & error)
 	{

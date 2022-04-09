@@ -16,12 +16,14 @@ Form::Form():
 name_(default_form), rqr_sign_(get_rand()),
 rqr_exec_((get_rand() + static_cast<int>(Bureaucrat::GetTime())) % 150 + 1)
 {
+	std::cout << "Default Form constructor was called" << std::endl;
 	sign_ = false;
 }
 
 Form::Form(const std::string &name, int sign, int exec):
 name_(name), rqr_sign_(sign), rqr_exec_(exec)
 {
+	std::cout << "Named and graded Form constructor was called" << std::endl;
 	sign_ = false;
 	if (rqr_sign_ < 1 || rqr_exec_ < 1)
 		throw GradeTooHighException();
@@ -33,12 +35,14 @@ Form::Form(const std::string &name):
 	name_(name), rqr_sign_(get_rand()),
 	rqr_exec_((get_rand() + static_cast<int>(Bureaucrat::GetTime())) % 150 + 1)
 {
+	std::cout << "Named Form constructor was called" << std::endl;
 	sign_ = false;
 }
 
 Form::Form(const Form& form):
 name_(form.name_), rqr_sign_(form.rqr_sign_), rqr_exec_(form.rqr_exec_)
 {
+	std::cout << "Copy Form constructor was called" << std::endl;
 	*this = form;
 }
 
@@ -91,6 +95,7 @@ std::ostream& operator<< (std::ostream& out, const Form& form)
 
 Form::~Form()
 {
+	std::cout << "Form destructor was called" << std::endl;
 }
 
 void Form::BeSigned(const Bureaucrat &signer)

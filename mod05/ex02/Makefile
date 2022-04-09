@@ -1,6 +1,7 @@
-NAME		=	maggots
+NAME		=	no_you_need
 
-SRCS		=	main.cpp	Bureaucrat.cpp	Bureaucrat_funcs.cpp	Form.cpp
+SRCS		=	main.cpp	Bureaucrat.cpp	Bureaucrat_funcs.cpp	Form.cpp\
+ShrubberyCreationForm.cpp	RobotomyRequestClass.cpp	PresidentialPardonForm.cpp
 
 VPATH		=	.
 

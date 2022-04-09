@@ -37,6 +37,7 @@ public:
 
 	static uint64_t	GetTime();
 	void			SignForm(Form& form);
+	void			ExecuteForm(Form& form);
 	void			set_grade(const int &grade);
 	int				get_grade() const;
 	std::string		get_name() const;

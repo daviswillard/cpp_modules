@@ -93,9 +93,9 @@ Form::~Form()
 {
 }
 
-void Form::BeSigned(const Bureaucrat &signer)
+void	Form::BeSigned(const Bureaucrat &signer)
 {
-	if (signer.get_grade() <= rqr_sign_ && signer.get_grade() > 0)
+	if (signer.get_grade() <= rqr_sign_)
 		set_sign(true);
 	else if (signer.get_grade() > rqr_sign_)
 		throw Bureaucrat::GradeTooLowException();

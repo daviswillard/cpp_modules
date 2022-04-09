@@ -34,6 +34,21 @@ void	Bureaucrat::SignForm(Form& form)
 	}
 }
 
+void	Bureaucrat::ExecuteForm(Form &form)
+{
+	try
+	{
+		form.Execute(*this);
+		std::cout << "Bureaucrat " << name_	<< " executed " << form.get_name()
+			<< std::endl;
+	}
+	catch (std::exception& error)
+	{
+		std::cout << name_<< " couldn't execute " << form.get_name()
+			<< " because " << error.what() << std::endl;
+	}
+}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
 //	std::cout << "Copy assignment operator called" << std::endl;

@@ -15,7 +15,7 @@ public:
 	Form();
 	explicit Form(const std::string& name);
 	Form(const std::string& name, int sign, int exec);
-	~Form();
+	virtual ~Form();
 	Form(const Form& copy);
 
 	class GradeTooHighException : public std::exception
@@ -31,13 +31,14 @@ public:
 
 	Form& operator=(const Form &form);
 
-	bool		get_signature() const;
-	int			get_exec() const;
-	int			get_sign() const;
-	int			get_rand() const;
-	std::string	get_name() const;
-	void		set_sign(bool sign);
-	void		BeSigned(const Bureaucrat& signer);
+	bool			get_signature() const;
+	int				get_exec() const;
+	int				get_sign() const;
+	int				get_rand() const;
+	std::string		get_name() const;
+	void			set_sign(bool sign);
+	void			BeSigned(const Bureaucrat& signer);
+	virtual void	Execute(const Bureaucrat& executor) const = 0;
 
 private:
 	const std::string	name_;

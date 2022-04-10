@@ -38,19 +38,19 @@ int main(int, char**)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	std::cout << "-------------------------------------------------------" << std::endl;
 
-	std::cout << "Trying to refer to the array with too big index..." <<
-	std::endl;
+	std::cout << "Trying to write to the array element with too big index..."
+	<< std::endl;
 	try
 	{
 		numbers[MAX_VAL + 1] = 0;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	std::cout << "-------------------------------------------------------" << std::endl;
 
@@ -59,5 +59,5 @@ int main(int, char**)
 		numbers[i] = rand();
 	}
 	delete [] mirror;
-	return 0;
+	return (0);
 }

@@ -1,13 +1,15 @@
 #include "Convert.h"
 
 Convert::Convert():
-argv_(nullptr), str_(nullptr), ch_(0), integer_(0), flott_(0.0f), dubble_(0.0)
+argv_(nullptr), str_(nullptr), ch_(0), integer_(0), flott_(0.0f), dubble_(0.0),
+int_s_(true), flo_s_(true), dou_s_(true)
 {
 //	std::cout << "Default converter (useless) constructor called" << std::endl;
 }
 
 Convert::Convert(const char *argv):
-argv_(argv), ch_(0), integer_(0), flott_(0.0f), dubble_(0.0)
+argv_(argv), ch_(0), integer_(0), flott_(0.0f), dubble_(0.0),
+int_s_(true), flo_s_(true), dou_s_(true)
 {
 	str_ = argv;
 }
@@ -91,8 +93,13 @@ void	Convert::ConvertInt()
 {
 	try
 	{
-		if (str_.length() == 1 && isdigit(str_[0]))
-			integer_ = static_cast<int>(std::atoi(str_.c_str()));
+		if (str_.length() == 1)
+		{
+			if (isdigit(str_[0]))
+				integer_ = static_cast<int>(std::atoi(str_.c_str()));
+			else
+				integer_ = static_cast<int>(str_[0]);
+		}
 		else
 			integer_ = std::stoi(str_);
 		int_s_ = true;
@@ -107,16 +114,11 @@ void Convert::ConvertFloat()
 {
 	try
 	{
-		if (str_.length() == 1 && !std::isdigit(str_[0]) &&
-			std::isprint(str_[0]))
-		{
+		if (str_.length() == 1 && !std::isdigit(str_[0])
+			&& std::isprint(str_[0]))
 			flott_ = static_cast<float>(str_[0]);
-		}
 		else
-		{
 			flott_ = static_cast<float>(std::stof(str_));
-			flo_s_ = true;
-		}
 	}
 	catch (...)
 	{

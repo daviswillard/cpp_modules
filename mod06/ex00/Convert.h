@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include <limits>
 
 class Convert
 {
@@ -19,6 +18,12 @@ public:
 	void		ConvertInt();
 	void		ConvertFloat();
 	void		ConvertDouble();
+
+	void		Print() const;
+	void		PrintInt() const;
+	void		PrintChar() const;
+	void		PrintFloat() const;
+	void		PrintDouble() const;
 
 	std::string	get_str() const;
 	char		get_char() const;

@@ -7,6 +7,7 @@ int	main(int argc, char *argv[])
 		std::cout << "Wrong number of arguments" << std::endl;
 		return (1);
 	}
-
+	Convert converter(argv[1]);
+	converter.Converter();
 	return (0);
 }

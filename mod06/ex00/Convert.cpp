@@ -3,7 +3,7 @@
 Convert::Convert():
 argv_(nullptr), str_(nullptr), ch_(0), integer_(0), flott_(0.0f), dubble_(0.0)
 {
-	std::cout << "Default converter (useless) constructor called" << std::endl;
+//	std::cout << "Default converter (useless) constructor called" << std::endl;
 }
 
 Convert::Convert(const char *argv):
@@ -14,13 +14,13 @@ argv_(argv), ch_(0), integer_(0), flott_(0.0f), dubble_(0.0)
 
 Convert::~Convert()
 {
-	std::cout << "Convert destructor was called" << std::endl;
+//	std::cout << "Serializer destructor was called" << std::endl;
 }
 
 Convert::Convert(const Convert &copy):
 argv_(copy.argv_)
 {
-	std::cout << "Convert copy constructor was called" << std::endl;
+//	std::cout << "Serializer copy constructor was called" << std::endl;
 	*this = copy;
 }
 
@@ -67,16 +67,24 @@ void	Convert::Converter()
 	ConvertInt();
 	ConvertFloat();
 	ConvertDouble();
+	Print();
 }
 
 void	Convert::ConvertChar()
 {
-	if (str_.length() == 1 && !isdigit(str_[0]))
-		ch_ = static_cast<char>(str_[0]);
-	else if (std::stoi(str_) >= 0 && std::stoi(str_) <= 127)
-		ch_ = static_cast<char>(std::stoi(str_));
-	else
+	try
+	{
+		if (str_.length() == 1 && !isdigit(str_[0]))
+			ch_ = static_cast<char>(str_[0]);
+		else if (std::stoi(str_) >= 0 && std::stoi(str_) <= 127)
+			ch_ = static_cast<char>(std::stoi(str_));
+		else
+			throw (-1);
+	}
+	catch (...)
+	{
 		ch_ = -1;
+	}
 }
 
 void	Convert::ConvertInt()
@@ -133,4 +141,66 @@ void Convert::ConvertDouble()
 	{
 		dou_s_ = false;
 	}
+}
+
+void	Convert::PrintChar() const
+{
+	std::cout << "char: ";
+	if (ch_ >= 0)
+	{
+		if (std::isprint(ch_))
+			std::cout << ch_;
+		else
+			std::cout << "non displayable";
+	}
+	else
+		std::cout << "impossible";
+	std::cout << std::endl;
+}
+
+void	Convert::PrintInt() const
+{
+	std::cout << "int: ";
+	if (int_s_)
+		std::cout << integer_;
+	else
+		std::cout << "impossible";
+	std::cout << std::endl;
+}
+
+void	Convert::PrintFloat() const
+{
+	std::cout << "float: ";
+	if (flo_s_)
+	{
+		std::cout << flott_;
+		if (static_cast<int>(flott_) - flott_ == 0.f && flott_ < 1000000.f)
+			std::cout << ".0";
+		std::cout << "f";
+	}
+	else
+		std::cout << "impossible";
+	std::cout << std::endl;
+}
+
+void	Convert::PrintDouble() const
+{
+	std::cout << "double: ";
+	if (dou_s_)
+	{
+		std::cout << dubble_;
+		if (static_cast<int>(dubble_) - dubble_ == 0. && flott_ < 1000000.)
+			std::cout << ".0";
+	}
+	else
+		std::cout << "impossible";
+	std::cout << std::endl;
+}
+
+void	Convert::Print() const
+{
+	PrintChar();
+	PrintInt();
+	PrintFloat();
+	PrintDouble();
 }
